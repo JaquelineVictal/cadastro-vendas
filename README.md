@@ -73,12 +73,30 @@ python consulta_vendas_app.py   # abre uma janela desktop - consulta vendas
 Cadastre algumas vendas pelo Gradio e clique em "Atualizar lista" no Tkinter para confirmar que as
 duas interfaces enxergam o mesmo banco.
 
-## Entregáveis desta atividade
+## Entrega
 
-- Código-fonte completo em Python (este repositório).
-- URL e `anon key` do projeto Supabase, entregues ao professor **fora do Git** (ver
-  `CREDENCIAIS_ENTREGA.txt`, que é gerado localmente e está no `.gitignore` — nunca é commitado).
+- **Repositório**: https://github.com/JaquelineVictal/cadastro-vendas
+- **Banco**: projeto no Supabase, tabela `vendas`, RLS desativado — URL e `anon key` entregues ao
+  professor **fora do Git** (ver `CREDENCIAIS_ENTREGA.txt`, gerado localmente e no `.gitignore`).
+- **Prints das duas interfaces**: abaixo
 
-> Por que fora do Git? Em projetos reais, credenciais nunca vão para um repositório, mesmo
-> privado. Para esta atividade didática o próprio guia autoriza enviar URL + anon key ao professor,
-> mas por um canal separado do código-fonte — é esse hábito que vale carregar para projetos reais.
+| Cadastro (Gradio) | Consulta (Tkinter) |
+|---|---|
+| ![Interface Gradio cadastrando uma venda](img/01-cadastro-gradio.png) | ![Interface Tkinter consultando as vendas](img/02-consulta-tkinter.png) |
+
+### Texto descritivo
+
+O projeto retoma o Sistema de Cadastro de Vendas feito em Gradio (antes com SQLite local) e o
+adapta para gravar os dados em um banco Postgres na nuvem, hospedado no Supabase. Foi criada
+também uma segunda interface, em Python com Tkinter, rodando como aplicativo desktop, que se
+conecta ao mesmo banco no Supabase — mas apenas para consultar registros já existentes, sem
+nenhuma função de inserir, editar ou excluir. O código foi organizado em camadas (repository,
+service e controllers): a interface Tkinter usa um controller que sequer possui um método de
+escrita, então a restrição de "somente leitura" existe a nível de código, não só de interface. As
+duas pontas foram testadas de ponta a ponta — uma venda cadastrada pelo Gradio foi confirmada na
+consulta pelo Tkinter, validando que ambas compartilham o mesmo banco central no Supabase.
+
+> Por que credenciais fora do Git? Em projetos reais, credenciais nunca vão para um repositório,
+> mesmo privado. Para esta atividade didática o próprio guia autoriza enviar URL + anon key ao
+> professor, mas por um canal separado do código-fonte — é esse hábito que vale carregar para
+> projetos reais.
