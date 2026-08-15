@@ -49,6 +49,7 @@ db/schema.sql                      # migration de referencia da tabela vendas
 Veja o passo a passo detalhado em [`SUPABASE_SETUP.md`](SUPABASE_SETUP.md).
 
 Resumo:
+
 1. Criar projeto no Supabase.
 2. Rodar [`db/schema.sql`](db/schema.sql) no SQL Editor para criar a tabela `vendas`.
 3. Desativar o RLS da tabela (ou criar policies de `select`/`insert` para `anon`).
@@ -80,23 +81,10 @@ duas interfaces enxergam o mesmo banco.
   professor **fora do Git** (ver `CREDENCIAIS_ENTREGA.txt`, gerado localmente e no `.gitignore`).
 - **Prints das duas interfaces**: abaixo
 
-| Cadastro (Gradio) | Consulta (Tkinter) |
-|---|---|
+| Cadastro (Gradio)                                                     | Consulta (Tkinter)                                                      |
+| --------------------------------------------------------------------- | ----------------------------------------------------------------------- |
 | ![Interface Gradio cadastrando uma venda](img/01-cadastro-gradio.png) | ![Interface Tkinter consultando as vendas](img/02-consulta-tkinter.png) |
 
 ### Texto descritivo
 
-O projeto retoma o Sistema de Cadastro de Vendas feito em Gradio (antes com SQLite local) e o
-adapta para gravar os dados em um banco Postgres na nuvem, hospedado no Supabase. Foi criada
-também uma segunda interface, em Python com Tkinter, rodando como aplicativo desktop, que se
-conecta ao mesmo banco no Supabase — mas apenas para consultar registros já existentes, sem
-nenhuma função de inserir, editar ou excluir. O código foi organizado em camadas (repository,
-service e controllers): a interface Tkinter usa um controller que sequer possui um método de
-escrita, então a restrição de "somente leitura" existe a nível de código, não só de interface. As
-duas pontas foram testadas de ponta a ponta — uma venda cadastrada pelo Gradio foi confirmada na
-consulta pelo Tkinter, validando que ambas compartilham o mesmo banco central no Supabase.
-
-> Por que credenciais fora do Git? Em projetos reais, credenciais nunca vão para um repositório,
-> mesmo privado. Para esta atividade didática o próprio guia autoriza enviar URL + anon key ao
-> professor, mas por um canal separado do código-fonte — é esse hábito que vale carregar para
-> projetos reais.
+O projeto retoma o Sistema de Cadastro de Vendas feito em Gradio (antes com SQLite local) e o adapta para gravar os dados em um banco Postgres na nuvem, hospedado no Supabase. Foi criada também uma segunda interface, em Python com Tkinter, rodando como aplicativo desktop, que se conecta ao mesmo banco no Supabase — mas apenas para consultar registros já existentes, sem nenhuma função de inserir, editar ou excluir. O código foi organizado em camadas(repository, service e controllers): a interface Tkinter usa um controller que sequer possui um método de escrita, então a restrição de "somente leitura" existe a nível de código, não só de interface. As duas pontas foram testadas de ponta a ponta — uma venda cadastrada pelo Gradio foi confirmada na consulta pelo Tkinter, validando que ambas compartilham o mesmo banco central no Supabase.
