@@ -1,0 +1,6 @@
+.env
+CREDENCIAIS_ENTREGA.txt
+__pycache__/
+*.pyc
+.venv/
+venv/
