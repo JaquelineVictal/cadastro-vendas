@@ -81,9 +81,9 @@ duas interfaces enxergam o mesmo banco.
   professor **fora do Git** (ver `CREDENCIAIS_ENTREGA.txt`, gerado localmente e no `.gitignore`).
 - **Prints das duas interfaces**: abaixo
 
-| Cadastro (Gradio)                                                     | Consulta (Tkinter)                                                      |
-| --------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| ![Interface Gradio cadastrando uma venda](img/01-cadastro-gradio.png) | ![Interface Tkinter consultando as vendas](img/02-consulta-tkinter.png) |
+![Interface Gradio cadastrando uma venda](img/01-cadastro-gradio.png)
+
+_Print da interface Tkinter (consulta) — pendente._
 
 ### Texto descritivo
 
